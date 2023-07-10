@@ -1,0 +1,252 @@
+
+
+
+<div class="home-container" style="margin-left: 400px; margin-top: 100px;">
+    
+    <div class="step-container">
+       
+          <div *ngIf="currentStep === 1">
+            <div class="conversion-form">
+                <div class="form-field">
+                  <div class="form-field-container">
+                    <table>
+                      <tr>
+                        <td>
+                          <P>You send exactly</P>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="combined-input">
+                            <input type="number" id="send-amount" [(ngModel)]="sendAmount" (ngModelChange)="calculateReceiveAmount()" value="10000" >
+                            <select id="from-country" [(ngModel)]="fromCountry" (ngModelChange)="calculateReceiveAmount()" style="font-weight: bold;">
+                              <option value="USD">
+                                <div class="select-option">
+                                  <img src="assets/USA.jpg"  class="flag-image">
+                                  USA
+                                </div>
+                              </option>
+                              <option value="INR" selected>
+
+                                <div class="select-option">
+                                  <img src="../assets/images/INDIA.png" alt="India Flag">
+                                India 
+                                </div>
+                                
+                              </option>
+                              <option value="CHINA">
+                                <div class="select-option">
+                                  <img src="../assets/images/CHINA.png" alt="China Flag">
+                                  China
+                                </div>
+                              </option>
+                              <option value="EUR">
+                                <div class="select-option">
+                                  <img src="../assets/images/EUROPE.png" alt="Europe Flag">
+                                  Europe
+                                </div>
+                              </option>
+                              <option value="AUD">
+                                <div class="select-option">
+                                  <img src="../assets/images/AUSTRALIA.png" alt="Australia Flag">
+                                  Australia
+                                </div>
+                              </option>
+                            </select>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <tr>
+                        <div class="label-value">
+                          {{getBankTransferFee()}}
+                           
+                          <P style="margin-left: 320px;">Bank Transfer Fee</P>
+                        </div>
+                      </tr>
+  
+
+                       <tr>
+                        <div class="label-value">
+                          {{getOurFee()}}
+                          
+                          <P style="margin-left: 300px;">Our Fee</P>
+                        </div>
+                        </tr>
+
+                      <tr>
+                        <div class="label-value">
+                          {{getTotalFees()}}
+                         
+                        <P style="margin-left: 300px;">Total Fees</P>
+                        </div>
+                      </tr>
+                      <tr>
+                        <div class="label-value">
+                          {{getTotalAmountConvert()}}
+                          
+                          
+                       <P style="margin-left: 300px;">Total Amount We Convert</P> 
+                        </div>
+                    </tr>
+                    </table>
+                  </div>
+                </div>
+                <div class="form-field">
+                  <div class="form-field-container">
+                    <table>
+                      <tr>
+                        <td>
+                          <p>Recipient receives</p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class="combined-input">
+                            <input type="text" id="receive-amount" [value]="calculateReceiveAmount() !== null ? calculateReceiveAmount() : ''" readonly>
+                            <select id="to-country" [(ngModel)]="toCountry" (ngModelChange)="calculateReceiveAmount()" value="USD" style="font-weight: bold;">
+                              <option value="USD" selected>
+                                <div class="select-option">
+                                  <img src="../assets/images/USA.png" alt="USA Flag">
+                                  USA
+                                </div>
+                              </option>
+                              <option value="INR">
+                                <div class="select-option">
+                                  <img src="../assets/images/INDIA.png" alt="India Flag">
+                                  India
+                                </div>
+                              </option>
+                              <option value="CHINA">
+                                <div class="select-option">
+                                  <img src="../assets/images/CHINA.png" alt="China Flag">
+                                  China
+                                </div>
+                              </option>
+                              <option value="EUR">
+                                <div class="select-option">
+                                  <img src="../assets/images/EUROPE.png" alt="Europe Flag">
+                                  Europe
+                                </div>
+                              </option>
+                              <option value="AUD">
+                                <div class="select-option">
+                                  <img src="../assets/images/AUSTRALIA.png" alt="Australia Flag">
+                                  Australia
+                                </div>
+                              </option>
+                            </select>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+            </div>
+
+
+            
+
+
+                <button (click)="nextStep()" >Continue</button>
+                <!-- <button routerLink="/chooserecipient" >Continue</button>  -->
+              </div>
+              
+              <!-- Step 2: Recipient Step -->
+              <div *ngIf="currentStep === 2">
+                <!-- Step 2: Recipient Details -->
+                <h2>Step 2: Recipient Details</h2>
+              
+                <div class="recipient-options">
+                  <h3>Select recipient type:</h3>
+                  <div class="recipient-tiles">
+                    <div class="recipient-tile" (click)="selectRecipientType('myself')">
+                      <button>Myself</button>
+                    </div>
+                    <div class="recipient-tile" (click)="selectRecipientType('recipient')">
+                      <button>Recipient Details</button>
+                    </div>
+                    <div class="recipient-tile" (click)="selectRecipientType('business')">
+                      <button>Business/Charity Account</button>
+                    </div>
+                
+                </div>
+                
+              
+                <div *ngIf="recipientType === 'myself' || recipientType === 'recipient' || recipientType === 'business'">
+                  <!-- <div> -->
+                    <!-- <label>Email:</label>
+                    <input type="email" [(ngModel)]="email" placeholder="Enter email">
+                  </div> -->
+
+                  <h3>Bank Details</h3>
+                  <div>
+                    <label>Name:</label>
+                    <input type="text" [(ngModel)]="name" placeholder="Enter name">
+                  </div>
+                  <div>
+                    <label>Account Number:</label>
+                    <input type="text" [(ngModel)]="accountNumber" placeholder="Enter account number">
+                  </div>
+                  <div>
+                    <label>IFSC Code:</label>
+                    <input type="text" [(ngModel)]="ifscCode" placeholder="Enter IFSC code">
+                  </div>
+                  <div>
+                    <label>Account Type:</label>
+                    <select [(ngModel)]="accountType">
+                      <option value="Savings">Savings</option>
+                      <option value="Business">Business</option>
+                    </select>
+                  </div>
+              
+                  <div *ngIf="recipientType === 'recipient' || recipientType === 'business'">
+                   
+                  </div>
+              
+                  <div *ngIf="recipientType === 'recipient'">
+                    <h3>Recipient Address</h3>
+                    <div>
+                      <label>Country:</label>
+                      <input type="text" [(ngModel)]="country" placeholder="Enter country">
+                    </div>
+                    <div>
+                      <label>City:</label>
+                      <input type="text" [(ngModel)]="city" placeholder="Enter city">
+                    </div>
+                    <div>
+                      <label>Address:</label>
+                      <input type="text" [(ngModel)]="address" placeholder="Enter address">
+                    </div>
+                    <div>
+                      <label>Postal Code:</label>
+                      <input type="text" [(ngModel)]="postalCode" placeholder="Enter postal code">
+                    </div>
+                  </div>
+                </div>
+                </div>
+              
+                <button (click)="nextStep()" [disabled]="!isRecipientDetailsValid()">Continue</button>
+              </div>
+                  <div *ngIf="currentStep === 3">
+          <!-- Review Step -->
+          <h2>Step 3: Review</h2>
+          <div>
+            <p>Recipient Name: {{ recipientName }}</p>
+            <p>Email: {{ email }}</p>
+            <p>Bank Details: {{ bankDetails }}</p>
+          </div>
+          <button (click)="nextStep()">Continue</button>
+        </div>
+      
+        <div *ngIf="currentStep === 4">
+          <!-- Pay Step -->
+          <h2>Step 4: Pay</h2>
+          <p>Payment form goes here...</p>
+
+        </div>
+      </div>
+      
+      
+  </div>
+  

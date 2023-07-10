@@ -1,0 +1,87 @@
+
+
+   <div class="review-container">
+    <h2>Review Account Details</h2>
+  
+    <div class="section-container">
+      <h3>Bank Details</h3>
+      <div class="review-item">
+        <span class="review-label">Account Holder Name:</span>
+        <span class="review-value">{{ formData['account-holder-name'] }}</span>
+      </div>
+      <div class="review-item">
+        <span class="review-label">Account Number:</span>
+        <span class="review-value">{{ formData['account-number'] }}</span>
+      </div>
+      <div class="review-item">
+        <span class="review-label">IFSC Code:</span>
+        <span class="review-value">{{ formData['ifsc-code'] }}</span>
+      </div>
+      <div class="review-item">
+        <span class="review-label">Account Type:</span>
+        <span class="review-value">{{ formData['account-type'] }}</span>
+      </div>
+      <div class="review-item">
+        <span class="review-label">From Bank:</span>
+        <span class="review-value">{{ formData['from-bank'] }}</span>
+      </div>
+      <div class="review-item">
+        <span class="review-label">To Bank:</span>
+        <span class="review-value">{{ formData['to-bank'] }}</span>
+      </div>
+    </div>
+  
+    <div class="section-container">
+      <h3>Address Details</h3>
+      <div class="review-item">
+        <span class="review-label">Country:</span>
+        <span class="review-value">{{ formData['country'] }}</span>
+      </div>
+      <div class="review-item">
+        <span class="review-label">City:</span>
+        <span class="review-value">{{ formData['city'] }}</span>
+      </div>
+      <div class="review-item">
+        <span class="review-label">Recipient Address:</span>
+        <span class="review-value">{{ formData['recipient-address'] }}</span>
+      </div>
+      <div class="review-item">
+        <span class="review-label">Post Code:</span>
+        <span class="review-value">{{ formData['post-code'] }}</span>
+      </div>
+    </div>
+  
+    <!-- <div class="button-container">
+      <button class="confirm-button" (click)="confirmAccountDetails()" >Confirm</button>
+      <button class="edit-button" (click)="goBack()">Edit</button>
+    </div>
+  </div> -->
+
+
+  <!-- dialogue box --> 
+   <div class="button-container">
+    <button class="confirm-button" (click)="confirmAccountDetails()">Confirm</button>
+    <button class="edit-button" (click)="goBack()">Edit</button>
+  </div> 
+
+  
+  
+
+
+
+  <div class="dialog-overlay" *ngIf="transactionSuccessful">
+    <div class="dialog-box">
+      <img src="assets/rightmark2.jpg" alt="Success Image" class="success-image">
+      <h3 class="success-message">Your Transaction has been successful!</h3>
+    <p>  To save the details      <a class="download-link" href="#" (click)="generatePDF($event)">Download Here</a></p>
+    </div>
+  </div>
+  
+
+ 
+
+ 
+
+
+
+

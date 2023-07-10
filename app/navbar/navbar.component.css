@@ -1,0 +1,144 @@
+/* 
+
+ 
+
+ 
+ .navbar {
+    background-color: white;
+    overflow: hidden;
+}
+
+.navbar a {
+    float: left;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "calibri";
+}
+
+.navbar a:hover {
+    background-color: black;
+    color: white;
+}
+
+.navbar-right {
+    float: right;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo .logo-image {
+    width: 90px; 
+    height: auto;
+    margin-right: 10px;
+    margin-top: -7px; 
+}
+
+.navbar a.logo {
+    font-family: 'forte';
+    font-weight: normal;
+    font-size: 20px;
+}
+
+.navbar a.logo:before {
+    content: "\f1af";
+    font-family: "FontAwesome";
+    margin-right: 5px;
+    font-size: 16px;
+}
+
+
+
+
+ */
+
+
+
+
+ 
+/* Navbar styles */
+/* Navbar styles */
+header {
+    background-color: #222;
+    padding: 5px;
+  }
+  
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .forex-text {
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'MJ Bold', cursive;
+    margin-right: 10px;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  .nav-links li {
+    margin-right: 10px;
+  }
+  
+  .nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-family: "Arial", sans-serif;
+    font-size: 14px;
+  }
+  
+  .nav-links li a:hover {
+    text-decoration: underline;
+  }
+  
+  .nav-links li a.active {
+    font-weight: bold;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    align-items: center;
+  }
+  
+  
+  .login-button,
+  .signup-button ,.logout-button{
+    background-color: #ff9f00;
+    color: #fff;
+    padding: 11px 16px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    text-decoration: none;
+    font-family: "Arial", sans-serif;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+  
+  .login-button:hover,
+  .signup-button:hover ,.logout-button:hover{
+    background-color: #e67e00;
+    transform: scale(1.1);
+  }
+  

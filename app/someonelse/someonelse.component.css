@@ -1,0 +1,70 @@
+.form-container {
+    text-align: center;
+    margin: 20px auto;
+    width: 500px; /* Adjust the width as needed */
+    margin-top: 90px; /* Top margin for the entire form */
+    margin-bottom: 90px; /* Bottom margin for the entire form */
+  }
+  
+  .form-container h2 {
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-bottom: 50px; /* Margin between "Enter Your Details" and the form group */
+  }
+  
+  .form-group {
+    margin-bottom: 30px; /* Margin between form groups */
+  }
+  
+  .form-group label {
+    display: block;
+    text-align: left;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 5px; /* Margin below the label */
+  }
+  
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group select {
+    width: 100%;
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px; /* Margin between fields */
+  }
+  
+  .form-group select {
+    height: 40px;
+  }
+  
+  .form-group input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px; /* More curved corners */
+    background-color: rgb(61, 205, 61);; /* Light green color */
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .form-group input[type="submit"]:hover {
+    background-color: #49cc3a; /* Darker shade on hover */
+  }
+  .error-message{
+    font-size: small;
+    color: red;
+    text-align: left;
+  }
+  .horizontal-line {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  

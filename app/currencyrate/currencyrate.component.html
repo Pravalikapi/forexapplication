@@ -1,0 +1,160 @@
+<!-- 
+
+
+   <div class="container">
+    <h1>Forex Conversion</h1>
+    <form (submit)="convertCurrency()">
+      <div class="form-group">
+        <label for="amountInput">You Send Exactly</label>
+        <input type="number" class="form-control" id="amountInput" [(ngModel)]="amount" name="amount" required>
+      </div>
+      <div class="form-group">
+        <label for="fromCountrySelect">From Country</label>
+        <div class="select-container">
+          <select class="form-control" id="fromCountrySelect" [(ngModel)]="fromCountry" name="fromCountry" (change)="onCountryChange('from')">
+            <option *ngFor="let rate of exchangeRates" [value]="rate.code">
+              {{ rate.country }} ({{ rate.code }})
+            </option>
+          </select>
+          <div *ngIf="selectedFromCountry" class="selected-country">
+            <img [src]="'assets/' + selectedFromCountry.code + '.jpg'" class="country-image" alt="Country Flag">
+            <span class="country-code">{{ selectedFromCountry.code }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="toCountrySelect">To Country</label>
+        <div class="select-container">
+          <select class="form-control" id="toCountrySelect" [(ngModel)]="toCountry" name="toCountry" (change)="onCountryChange('to')">
+            <option *ngFor="let rate of exchangeRates" [value]="rate.code">
+              {{ rate.country }} ({{ rate.code }})
+            </option>
+          </select>
+          <div *ngIf="selectedToCountry" class="selected-country">
+            <img [src]="'assets/' + selectedToCountry.code + '.jpg'" class="country-image" alt="Country Flag">
+            <span class="country-code">{{ selectedToCountry.code }}</span>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Convert</button>
+    </form>
+    <hr>
+    <div *ngIf="recipientAmount !== null" class="result">
+      <p>You Send Exactly: {{ getCurrencySymbol(fromCountry) }}{{ amount?.toFixed(2) }}</p>
+      <p>Our Fee: {{ getCurrencySymbol(fromCountry) }}{{ (amount! * 0.1).toFixed(2) }}</p>
+      <p>Bank Transfer Fee: {{ getCurrencySymbol(fromCountry) }}{{ '0.00' }}</p>
+      <p>Total Fee We Will Convert: {{ getCurrencySymbol(fromCountry) }}{{ (amount! - (amount! * 0.1)).toFixed(2) }}</p>
+      <p>Recipient Receives: {{ getCurrencySymbol(toCountry) }}{{ recipientAmount!.toFixed(2) }}</p>
+      <p>Chosen Country Code: {{ toCountry }}</p>
+    </div>
+  </div> 
+   
+     -->
+
+<!-- 
+     <div class="container">
+      <h1>Forex Conversion</h1>
+      <div class="form-group">
+        <label for="amountInput">You Send Exactly</label>
+        <input type="number" class="form-control" id="amountInput" [(ngModel)]="amount" name="amount" required>
+        <select class="form-control" [(ngModel)]="fromCountry" name="fromCountry" (ngModelChange)="onCountryChange('from')">
+          <option *ngFor="let rate of exchangeRates" [value]="rate.code">
+            {{ rate.country }} ({{ rate.code }})
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="receiverAmountInput">Receiver Receives</label>
+        <input type="number" class="form-control" id="receiverAmountInput" [(ngModel)]="recipientAmount" name="recipientAmount" [readonly]="true">
+        <select class="form-control" [(ngModel)]="toCountry" name="toCountry" (ngModelChange)="onCountryChange('to')">
+          <option *ngFor="let rate of exchangeRates" [value]="rate.code">
+            {{ rate.country }} ({{ rate.code }})
+          </option>
+        </select>
+      </div>
+      <div *ngIf="totalFee !== null" class="calculation-results">
+        <div class="calculation-row">
+          <div class="calculation-label">You Send Exactly:</div>
+          <div class="calculation-value">{{ getCurrencySymbol(fromCountry) }}{{ amount?.toFixed(2) }}</div>
+        </div>
+        <div class="calculation-row">
+          <div class="calculation-label">Our Fee:</div>
+          <div class="calculation-value">{{ getCurrencySymbol(fromCountry) }}{{ (amount! * 0.1).toFixed(2) }}</div>
+        </div>
+        <div class="calculation-row">
+          <div class="calculation-label">Bank Transfer Fee:</div>
+          <div class="calculation-value">{{ getCurrencySymbol(fromCountry) }}{{ '0.00' }}</div>
+        </div>
+        <div class="calculation-row">
+          <div class="calculation-label">Total Fee We Will Convert:</div>
+          <div class="calculation-value">{{ getCurrencySymbol(fromCountry) }}{{ totalFee.toFixed(2) }}</div>
+        </div>
+        <div class="calculation-row">
+          <div class="calculation-label">Recipient Receives:</div>
+          <div class="calculation-value">{{ getCurrencySymbol(toCountry) }}{{ recipientAmount!.toFixed(2) }}</div>
+        </div>
+      </div>
+    </div>
+     -->
+
+
+
+     <div class="container">
+      <!-- <h1>Forex Conversion</h1> -->
+      <div class="form-group">
+        <label for="amountInput">You Send Exactly</label>
+        <div class="input-with-dropdown">
+          <input type="number" class="form-control big-input" id="amountInput" [(ngModel)]="amount" name="amount" required>
+          <div class="dropdown-container">
+            <select class="form-control dropdown" [(ngModel)]="fromCountry" name="fromCountry" (ngModelChange)="onCountryChange('from')">
+              <option *ngFor="let rate of exchangeRates" [value]="rate.code">
+                {{ rate.country }} ({{ rate.code }})
+              </option>
+            </select>
+            <div class="dropdown-image">
+              <img [src]="'assets/' + fromCountry + '.jpg'" alt="Country Flag">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="receiverAmountInput">Receiver Receives</label>
+        <div class="input-with-dropdown">
+          <input type="number" class="form-control big-input" id="receiverAmountInput" [(ngModel)]="recipientAmount" name="recipientAmount" [readonly]="true">
+          <div class="dropdown-container">
+            <select class="form-control dropdown" [(ngModel)]="toCountry" name="toCountry" (ngModelChange)="onCountryChange('to')">
+              <option *ngFor="let rate of exchangeRates" [value]="rate.code">
+                {{ rate.country }} ({{ rate.code }})
+              </option>
+            </select>
+            <div class="dropdown-image">
+              <img [src]="'assets/' + toCountry + '.jpg'" alt="Country Flag">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="totalFee !== null" class="calculation-results">
+        <div class="calculation-row">
+          <div class="calculation-label">You Send Exactly:</div>
+          <div class="calculation-value">{{ getCurrencySymbol(fromCountry) }}{{ amount?.toFixed(2) }}</div>
+        </div>
+        <div class="calculation-row">
+          <div class="calculation-label">Our Fee:</div>
+          <div class="calculation-value">{{ getCurrencySymbol(fromCountry) }}{{ (amount! * 0.1).toFixed(2) }}</div>
+        </div>
+        <div class="calculation-row">
+          <div class="calculation-label">Bank Transfer Fee:</div>
+          <div class="calculation-value">{{ getCurrencySymbol(fromCountry) }}{{ '0.00' }}</div>
+        </div>
+        <div class="calculation-row">
+          <div class="calculation-label">Total Fee We Will Convert:</div>
+          <div class="calculation-value">{{ getCurrencySymbol(fromCountry) }}{{ totalFee.toFixed(2) }}</div>
+        </div>
+        <div class="calculation-row">
+          <div class="calculation-label">Recipient Receives:</div>
+          <div class="calculation-value">{{ getCurrencySymbol(toCountry) }}{{ recipientAmount!.toFixed(2) }}</div>
+        </div>
+      </div>
+    </div>
+    <button routerLink="/chooserecipient">continue</button>
+    

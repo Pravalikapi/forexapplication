@@ -1,0 +1,235 @@
+/* 
+
+ .container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin-top: -430px;
+  margin-right: 100px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+select.form-control {
+  appearance: none;
+  padding-right: 30px; 
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-image: url("/money2.png"); 
+}
+
+.btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.result {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #eaeaea;
+  border-radius: 5px;
+}
+
+.select-container {
+  position: relative;
+}
+
+.selected-country {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+}
+
+.country-image {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.country-code {
+  font-size: 14px;
+  font-weight: bold;
+} */
+
+/* 
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.calculation-results {
+  margin-top: 20px;
+}
+
+.calculation-results .calculation-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.calculation-results .calculation-label {
+  font-weight: bold;
+}
+
+.calculation-results .calculation-value {
+  font-style: italic;
+} */
+
+
+
+
+
+
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  margin-top: 70px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.input-with-dropdown {
+  display: flex;
+  align-items: center;
+ 
+}
+
+.big-input {
+  flex: 1;
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+}
+
+.dropdown-container {
+  position: relative;
+  margin-left: -135px;
+ padding-top: 10px;
+ padding-bottom: 10px;
+}
+
+.dropdown {
+  width: 135px;
+  padding: 10px;
+  font-size: 16px;
+  height: 47px;
+  
+}
+
+.dropdown-image {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.dropdown-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.calculation-results {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.calculation-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.calculation-label {
+  font-weight: bold;
+}
+
+.calculation-value {
+  font-weight: bold;
+}
+
+button {
+  width: 600px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: rgb(76, 198, 76);
+  color: white;
+  font-size: 16px;
+  font-weight: normal;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+ 
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: darkgreen;
+}
+
+h1{
+  font-family: Arial, Helvetica, sans-serif;
+}

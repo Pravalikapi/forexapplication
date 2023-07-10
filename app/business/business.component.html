@@ -1,0 +1,137 @@
+
+<div class="form-container">
+    <h2>Enter Business/Charity Account Details</h2>
+    <form id="bank-details-form" [formGroup]="bankForm" (ngSubmit)="submitBankDetailsForm()">
+      
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" class="form-control" formControlName="email">
+            <div class="error-message" *ngIf="bankForm.get('email')?.invalid && bankForm.get('email')?.touched">
+              <div *ngIf="bankForm.get('email')?.hasError('email')">Please enter a valid email address.</div>
+            </div>
+          </div>
+      
+  
+      <hr class="horizontal-line">
+  
+      <div class="form-group">
+        <h3>Bank Details</h3>
+        <!-- Existing bank details fields -->
+
+
+          
+      <div class="form-group">
+        <label for="account-holder-name">Account Holder Name</label>
+        <input type="text" id="account-holder-name" class="form-control" formControlName="account-holder-name">
+        <div class="error-message" *ngIf="bankForm.get('account-holder-name')?.invalid && bankForm.get('account-holder-name')?.touched">
+          <div *ngIf="bankForm.get('account-holder-name')?.hasError('required')">Account Holder Name is required.</div>
+          <div *ngIf="bankForm.get('account-holder-name')?.hasError('pattern')">Please enter a valid Account Holder Name.</div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="account-number">Account Number</label>
+        <input type="text" id="account-number" class="form-control" formControlName="account-number">
+        <div class="error-message" *ngIf="bankForm.get('account-number')?.invalid && bankForm.get('account-number')?.touched">
+          <div *ngIf="bankForm.get('account-number')?.hasError('required')">Account Number is required.</div>
+          <div *ngIf="bankForm.get('account-number')?.hasError('pattern')">Please enter a valid Account Number.</div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="ifsc-code">IFSC Code</label>
+        <input type="text" id="ifsc-code" class="form-control" formControlName="ifsc-code">
+        <div class="error-message" *ngIf="bankForm.get('ifsc-code')?.invalid && bankForm.get('ifsc-code')?.touched">
+          <div *ngIf="bankForm.get('ifsc-code')?.hasError('required')">IFSC Code is required.</div>
+          <div *ngIf="bankForm.get('ifsc-code')?.hasError('pattern')">Please enter a valid IFSC Code.</div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="account-type">Account Type</label>
+        <select id="account-type" class="form-control" formControlName="account-type">
+          <option value="">Select Account Type</option>
+          <option value="savings">Savings</option>
+          <option value="current">Current</option>
+        </select>
+        <div class="error-message" *ngIf="bankForm.get('account-type')?.invalid && bankForm.get('account-type')?.touched">
+          Account Type is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="from-bank">From Bank</label>
+        <select id="from-bank" class="form-control" formControlName="from-bank">
+          <option value="">Select From Bank</option>
+          <option value="State Bank Of India(SBI)">State Bank Of India(SBI)</option>
+          <option value="ICICI Bank">ICICI Bank</option>
+          <option value="Axis Bank">Axis Bank</option>
+          <option value="HDFC Bank">HDFC Bank</option>
+          <option value="Kotak Mahindra Bank">Kotak Mahindra Bank</option>
+        </select>
+        <div class="error-message" *ngIf="bankForm.get('from-bank')?.invalid && bankForm.get('from-bank')?.touched">
+          From Bank is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="to-bank">To Bank</label>
+        <select id="to-bank" class="form-control" formControlName="to-bank">
+          <option value="">Select To Bank</option>
+          <option value="State Bank Of India(SBI)">State Bank Of India(SBI)</option>
+          <option value="ICICI Bank">ICICI Bank</option>
+          <option value="Axis Bank">Axis Bank</option>
+          <option value="HDFC Bank">HDFC Bank</option>
+          <option value="Kotak Mahindra Bank">Kotak Mahindra Bank</option>
+        </select>
+        <div class="error-message" *ngIf="bankForm.get('to-bank')?.invalid && bankForm.get('to-bank')?.touched">
+          To Bank is required.
+        </div>
+      </div>
+  
+      </div>
+  
+      <hr class="horizontal-line">
+  
+      <div class="form-group">
+        <h3>Recipient Address Details</h3>
+        
+        <div class="form-group">
+          <label for="country">Country</label>
+          <input type="text" id="country" class="form-control" formControlName="country">
+          <div class="error-message" *ngIf="bankForm.get('country')?.invalid && bankForm.get('country')?.touched">
+            Country is required.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="city">City</label>
+          <input type="text" id="city" class="form-control" formControlName="city">
+          <div class="error-message" *ngIf="bankForm.get('city')?.invalid && bankForm.get('city')?.touched">
+            City is required.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="recipient-address">Recipient Address</label>
+          <input type="text" id="recipient-address" class="form-control" formControlName="recipient-address">
+          <div class="error-message" *ngIf="bankForm.get('recipient-address')?.invalid && bankForm.get('recipient-address')?.touched">
+            Recipient Address is required.
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="post-code">Post Code</label>
+          <input type="text" id="post-code" class="form-control" formControlName="post-code">
+          <div class="error-message" *ngIf="bankForm.get('post-code')?.invalid && bankForm.get('post-code')?.touched">
+            Post Code is required.
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <input type="submit" value="Continue">
+      </div>
+    </form>
+  </div>
+  

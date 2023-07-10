@@ -1,0 +1,50 @@
+<!-- 
+
+
+<body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <h1 class="forex-text">Forex</h1>
+          <ul class="nav-links">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+          </ul>
+        </div>
+        <div class="cta-buttons">
+
+        
+          <a href="#" class="login-button" routerLink="login">Login</a>
+          <a href="#" class="signup-button" routerLink="signup">Sign up</a>
+        </div>
+      </nav>
+    </header>
+   -->
+
+   <header>
+    <nav class="navbar">
+      <div class="logo">
+        <h1 class="forex-text">Forex</h1>
+        <ul class="nav-links">
+          <li><a href="#" class="active">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+        </ul>
+      </div>
+      <div class="cta-buttons">
+        <ng-container *ngIf="isLoggedIn; else loginButtons">
+          <!-- Show the logout button when the user is logged in -->
+          <a href="#" class="logout-button" (click)="logout()">Logout</a>
+        </ng-container>
+        <ng-template #loginButtons>
+          <!-- Show the login and signup buttons when the user is not logged in -->
+          <a *ngIf="!isLoggedIn && isHomePage()" href="#" class="login-button" routerLink="login">Login</a>
+          <a *ngIf="!isLoggedIn && isHomePage()" href="#" class="signup-button" routerLink="signup">Sign up</a>
+<button class="logout-button"*ngIf="isLoggedIn" (click)="logout()">Logout</button>
+
+        </ng-template>
+      </div>
+    </nav>
+  </header>
+  

@@ -1,0 +1,136 @@
+  
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<form (ngSubmit)="signup()" #signupForm="ngForm">
+  <div class="imgcontainer">
+    <img src="assets/img_avatar3.png" alt="Avatar" class="avatar">
+  </div>
+
+  <div class="container">
+    <label for="username"><b>Username</b></label>
+    <input type="text" id="username" name="username" required pattern="[A-Za-z]+" [(ngModel)]="username" placeholder="Enter Username">
+    <div *ngIf="signupForm.controls['username'].hasError('required') && signupForm.controls['username'].touched" class="error-message">Username is required.</div>
+    <div *ngIf="signupForm.controls['username'].hasError('pattern') && signupForm.controls['username'].touched" class="error-message">Username must contain only alphabets.</div>
+
+    <label for="password"><b>Password</b></label>
+    <input type="password" id="password" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}" [(ngModel)]="password" placeholder="Enter Password">
+    <div *ngIf="signupForm.controls['password'].hasError('required') && signupForm.controls['password'].touched" class="error-message">Password is required.</div>
+    <div *ngIf="signupForm.controls['password'].hasError('pattern') && signupForm.controls['password'].touched" class="error-message">Password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, one digit, and one special character.</div>
+
+    <label for="passwordRepeat"><b>Repeat Password</b></label>
+    <input type="password" id="passwordRepeat" name="passwordRepeat" required [(ngModel)]="passwordRepeat" placeholder="Repeat Password">
+    <div *ngIf="signupForm.controls['passwordRepeat'].hasError('required') && signupForm.controls['passwordRepeat'].touched" class="error-message">Password confirmation is required.</div>
+    <div *ngIf="passwordRepeat !== password" class="error-message">Passwords must match.</div>
+
+    <label for="email"><b>Email</b></label>
+    <input type="email" id="email" name="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" [(ngModel)]="email" placeholder="Enter Email">
+    <div *ngIf="signupForm.controls['email'].hasError('required') && signupForm.controls['email'].touched" class="error-message">Email is required.</div>
+    <div *ngIf="signupForm.controls['email'].hasError('pattern') && signupForm.controls['email'].touched" class="error-message">Please enter a valid email address.</div>
+
+    <label for="phone"><b>Phone Number</b></label>
+    <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" [(ngModel)]="phone" placeholder="Enter Phone Number">
+    <div *ngIf="signupForm.controls['phone'].hasError('required') && signupForm.controls['phone'].touched"class="error-message">Phone number is required.</div>
+    <div *ngIf="signupForm.controls['phone'].hasError('pattern') && signupForm.controls['phone'].touched" class="error-message">Please enter a valid 10-digit phone number.</div>
+
+    <label>
+      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+    </label>
+
+    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+    <button type="submit" [disabled]="!signupForm.form.valid">Register</button>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" class="cancelbtn" routerLink="/">Cancel</button>
+    </div>
+  </div>
+</form>
+
+</body>
+</html> 
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+ <!DOCTYPE html>
+ <html>
+ <head>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+ </head>
+ <body>
+   <div class="tile-container">
+     <div class="tile" [ngClass]="{ 'active': role === 'user' }" (click)="openSignupForm('user')">User Signup</div>
+     <div class="tile" [ngClass]="{ 'active': role === 'admin' }" (click)="openSignupForm('admin')">Admin Signup</div>
+   </div>
+   <form (ngSubmit)="signup()" #signupForm="ngForm">
+     <div class="imgcontainer">
+       <img src="assets/img_avatar3.png" alt="Avatar" class="avatar">
+     </div>
+ 
+     <div class="container">
+       <label for="username"><b>Username</b></label>
+       <input type="text" id="username" name="username" required pattern="[A-Za-z]+" [(ngModel)]="username" placeholder="Enter Username">
+       <div *ngIf="signupForm.controls['username'].hasError('required') && signupForm.controls['username'].touched" class="error-message">Username is required.</div>
+       <div *ngIf="signupForm.controls['username'].hasError('pattern') && signupForm.controls['username'].touched" class="error-message">Username must contain only alphabets.</div>
+ 
+       <label for="password"><b>Password</b></label>
+       <input type="password" id="password" name="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}" [(ngModel)]="password" placeholder="Enter Password">
+       <div *ngIf="signupForm.controls['password'].hasError('required') && signupForm.controls['password'].touched" class="error-message">Password is required.</div>
+       <div *ngIf="signupForm.controls['password'].hasError('pattern') && signupForm.controls['password'].touched" class="error-message">Password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, one digit, and one special character.</div>
+ 
+       <label for="passwordRepeat"><b>Repeat Password</b></label>
+       <input type="password" id="passwordRepeat" name="passwordRepeat" required [(ngModel)]="passwordRepeat" placeholder="Repeat Password">
+       <div *ngIf="signupForm.controls['passwordRepeat'].hasError('required') && signupForm.controls['passwordRepeat'].touched" class="error-message">Password confirmation is required.</div>
+       <div *ngIf="passwordRepeat !== password" class="error-message">Passwords must match.</div>
+ 
+       <label for="email"><b>Email</b></label>
+       <input type="email" id="email" name="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" [(ngModel)]="email" placeholder="Enter Email">
+       <div *ngIf="signupForm.controls['email'].hasError('required') && signupForm.controls['email'].touched" class="error-message">Email is required.</div>
+       <div *ngIf="signupForm.controls['email'].hasError('pattern') && signupForm.controls['email'].touched" class="error-message">Please enter a valid email address.</div>
+ 
+       <label for="phone"><b>Phone Number</b></label>
+       <input type="tel" id="phone" name="phone" required pattern="[0-9]{10}" [(ngModel)]="phone" placeholder="Enter Phone Number">
+       <div *ngIf="signupForm.controls['phone'].hasError('required') && signupForm.controls['phone'].touched"class="error-message">Phone number is required.</div>
+       <div *ngIf="signupForm.controls['phone'].hasError('pattern') && signupForm.controls['phone'].touched" class="error-message">Please enter a valid 10-digit phone number.</div>
+ 
+       <label>
+         <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+       </label>
+ 
+       <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+ 
+       <button type="submit" [disabled]="!signupForm.form.valid">Register</button>
+ 
+       <div class="container" style="background-color:#f1f1f1">
+         <button type="button" class="cancelbtn" routerLink="/">Cancel</button>
+       </div>
+     </div>
+   </form>
+ </body>
+ </html>
+  -->
