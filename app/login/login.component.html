@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+ <!-- <!DOCTYPE html>
     <html>
     <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +10,8 @@
       <div class="imgcontainer">
         <img src="assets/img_avatar3.png" alt="Avatar" class="avatar">
       </div>
-    
+  
+
       <div class="container">
         <label for="uname"><b>Username</b></label>
         <input type="text" id="username" name="username" required [(ngModel)]="username" placeholder="Enter Username">
@@ -53,7 +54,7 @@
     </body>
     </html>
      
- 
+  -->
  
 
 
@@ -142,3 +143,83 @@
 
 
  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!DOCTYPE html>
+    <html>
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   
+    </head>
+    <body>
+    
+   <form  (ngSubmit)="login()" #loginForm="ngForm" action="/action_page.php" method="post">
+      <div class="imgcontainer">
+        <img src="assets/img_avatar3.png" alt="Avatar" class="avatar">
+      </div>
+      <div class="tile-container">
+        <button class="tile" (click)="setLoginType('admin')" [class.active]="loginType === 'admin'">Admin Login</button>
+        <button class="tile" (click)="setLoginType('user')" [class.active]="loginType === 'user'">User Login</button>
+      </div>
+      
+
+      <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" id="username" name="username" required [(ngModel)]="username" placeholder="Enter Username">
+    
+
+
+        
+     <div  class="errormsg" *ngIf="loginForm.controls['username'].hasError('required') && loginForm.controls['username'].touched">
+      Username is required.
+    </div>
+
+    <div  class="errormsg" *ngIf="loginForm.controls['username'].hasError('pattern') && loginForm.controls['username'].touched">
+      Username must contain only alphabets.
+    </div>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" id="password" name="password" required [(ngModel)]="password" placeholder="Enter Password">
+            
+
+
+        
+     <div class="errormsg" *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].touched">
+      Password is required.
+    </div>
+
+    <div *ngIf="loginForm.controls['password'].hasError('pattern') && loginForm.controls['password'].touched">
+      Password must be at least 8 characters long and contain at least one lowercase letter, one uppercase letter, one digit, and one special character.
+    </div>
+        <div *ngIf="error" class="error-message">{{ error }}</div>
+        <button type="submit" [disabled]="!loginForm.form.valid">Login</button>
+        <div   class="container centered-text" *ngIf="!error">Don't have an account? <a routerLink="/signup">Sign up</a></div>
+      </div>
+    
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" class="cancelbtn" routerLink="/">Cancel</button>
+        
+      </div>
+    </form>
+    
+    </body>
+    </html>
+     
+ 

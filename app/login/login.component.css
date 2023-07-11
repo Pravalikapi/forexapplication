@@ -127,3 +127,36 @@ span.psw {
 .tile.active {
   text-decoration: underline;
 } */
+
+
+
+
+.tile-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tile {
+  background-color: #f1f1f1;
+  padding: 8px 15px;
+  margin-right: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  transition: background-color 0.3s;
+  width: 120px;
+}
+
+
+.tile:hover {
+  background-color: #ddd;
+}
+.tile.active {
+  /* background-color: #2196F3; */
+  background-color: #ccc;
+  color: white;
+  text-decoration: underline; /* Add this line to underline the active tile */
+}

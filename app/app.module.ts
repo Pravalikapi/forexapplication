@@ -26,6 +26,8 @@ import { BusinessComponent } from './business/business.component';
 import { ReviewComponent } from './review/review.component';
 import { SuccesspageComponent } from './successpage/successpage.component';
 import { AdminhomeComponent } from './adminhome/adminhome.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { AdminsignupComponent } from './adminsignup/adminsignup.component';
 
 
 const routes: Routes = [
@@ -45,7 +47,8 @@ const routes: Routes = [
   
   { path: 'success', component:SuccesspageComponent },
   { path: 'adminhome', component:AdminhomeComponent },
- 
+  { path: 'adminsignup', component:AdminsignupComponent },
+  { path: 'adminlogin', component:AdminloginComponent },
 
 ];
 @NgModule({
@@ -70,7 +73,9 @@ const routes: Routes = [
     BusinessComponent,
     ReviewComponent,
     SuccesspageComponent,
-    AdminhomeComponent 
+    AdminhomeComponent,
+    AdminloginComponent,
+    AdminsignupComponent 
   ],
   imports: [
     BrowserModule,
