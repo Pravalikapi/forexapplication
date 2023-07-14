@@ -63,22 +63,6 @@ import { Router } from '@angular/router';
 export class BusinessComponent {
   bankForm: FormGroup;
 
-  // constructor(private formBuilder: FormBuilder, private router: Router) {
-  //   this.bankForm = this.formBuilder.group({
-  //     email: ['', Validators.email],
-  //     'account-holder-name': ['', [Validators.required, Validators.pattern('[A-Za-z]+')]],
-  //     'account-number': ['', [Validators.required, Validators.pattern('[0-9]+')]],
-  //     'ifsc-code': ['', [Validators.required, Validators.pattern('[A-Za-z]{4}[0][A-Za-z0-9]{6}')]],
-  //     'account-type': ['', Validators.required],
-  //     'from-bank': ['', Validators.required],
-  //     'to-bank': ['', Validators.required],
-  //     country: ['', Validators.required],
-  //     city: ['', Validators.required],
-  //     'recipient-address': ['', Validators.required],
-  //     'post-code': ['', Validators.required]
-  //   });
-  // }
-
 
   constructor(private formBuilder: FormBuilder, private router: Router) {
     this.bankForm = this.formBuilder.group({
